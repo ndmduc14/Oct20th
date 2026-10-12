@@ -1,0 +1,218 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gửi Em Yêu 💗</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      font-family: "Segoe UI", sans-serif;
+      background: linear-gradient(135deg, #ffe0ec, #fff1f5, #ffd6e7);
+      color: #a83261;
+      padding: 20px;
+    }
+
+    .card {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      max-width: 460px;
+      padding: 38px 25px;
+      text-align: center;
+      background: rgba(255, 255, 255, 0.82);
+      border: 2px solid white;
+      border-radius: 28px;
+      box-shadow: 0 15px 45px rgba(197, 65, 120, 0.18);
+      animation: appear 1s ease;
+    }
+
+    .flower {
+      font-size: 48px;
+      margin-bottom: 12px;
+      animation: swing 3s ease-in-out infinite;
+    }
+
+    h1 {
+      font-size: 30px;
+      margin-bottom: 15px;
+      color: #e34d87;
+    }
+
+    .subtitle {
+      font-size: 16px;
+      line-height: 1.8;
+      margin-bottom: 22px;
+    }
+
+    .heart {
+      font-size: 45px;
+      margin: 15px 0;
+      animation: heartbeat 1s infinite;
+    }
+
+    button {
+      border: none;
+      border-radius: 30px;
+      padding: 14px 25px;
+      margin-top: 12px;
+      background: linear-gradient(135deg, #ff72a5, #ec4381);
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 6px 18px #f4a0bf;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      transform: translateY(-3px) scale(1.04);
+    }
+
+    #message {
+      display: none;
+      margin-top: 24px;
+      padding: 18px;
+      border-radius: 18px;
+      background: #fff0f6;
+      line-height: 1.9;
+      font-size: 15px;
+      animation: appear 0.7s ease;
+    }
+
+    .signature {
+      margin-top: 22px;
+      font-size: 14px;
+      color: #bd7190;
+    }
+
+    .floating {
+      position: fixed;
+      bottom: -40px;
+      pointer-events: none;
+      z-index: 1;
+      animation: floatUp linear forwards;
+    }
+
+    @keyframes heartbeat {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+    }
+
+    @keyframes swing {
+      0%, 100% { transform: rotate(-8deg); }
+      50% { transform: rotate(8deg); }
+    }
+
+    @keyframes appear {
+      from { opacity: 0; transform: translateY(15px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes floatUp {
+      from {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0.9;
+      }
+      to {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    @media (max-width: 400px) {
+      h1 { font-size: 25px; }
+      .card { padding: 30px 18px; }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="card">
+    <div class="flower">🌷💗🌷</div>
+
+    <h1>Chúc Mừng 20/10</h1>
+
+    <p class="subtitle">
+      Gửi cô gái đặc biệt nhất trong lòng anh 💕<br>
+      Chúc em một ngày thật xinh đẹp,<br>
+      luôn vui vẻ và hạnh phúc nhé!
+    </p>
+
+    <div class="heart">💖</div>
+
+    <p>
+      Hôm nay là ngày của em,<br>
+      nên anh có một món quà nhỏ dành tặng em...
+    </p>
+
+    <button onclick="openMessage()">
+      💌 Bấm vào đây nè
+    </button>
+
+    <div id="message">
+      <h3>Gửi em yêu của anh 💗</h3>
+      <p>
+        Cảm ơn em vì đã xuất hiện trong cuộc sống của anh.
+        Mong em luôn được yêu thương, được chiều chuộng
+        và mỗi ngày đều có thật nhiều niềm vui.
+        <br><br>
+        Anh không hứa sẽ khiến mọi thứ hoàn hảo,
+        nhưng anh sẽ cố gắng để những ngày bên anh
+        luôn là những ngày thật đáng nhớ.
+        <br><br>
+        <strong>Chúc em 20/10 thật hạnh phúc! Anh thương em nhiều lắm. 💋</strong>
+      </p>
+    </div>
+
+    <div class="signature">
+      Made with 💗 just for you
+    </div>
+  </main>
+
+  <script>
+    function openMessage() {
+      const message = document.getElementById("message");
+
+      if (message.style.display === "block") {
+        message.style.display = "none";
+      } else {
+        message.style.display = "block";
+      }
+    }
+
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.className = "floating";
+
+      const symbols = ["💗", "💕", "💖", "🌸", "✨"];
+      heart.textContent =
+        symbols[Math.floor(Math.random() * symbols.length)];
+
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.fontSize = (16 + Math.random() * 20) + "px";
+      heart.style.animationDuration = (5 + Math.random() * 5) + "s";
+
+      document.body.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 10000);
+    }
+
+    setInterval(createHeart, 450);
+  </script>
+</body>
+</html>
